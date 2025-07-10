@@ -1,11 +1,12 @@
 import { Component,Injectable,OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { User } from '../../../features/users/model/uesr.model'
 import { AuthService } from '../../../features/auth/services/auth.services'
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })

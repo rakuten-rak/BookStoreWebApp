@@ -1,0 +1,44 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        aria-describedby="emailHelp"
+        formControlName="email"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        formControlName="password"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="passwordConfirm" class="form-label"
+        >Confirm your password</label
+      >
+      <input
+        type="password"
+        class="form-control"
+        id="passwordConfirm"
+        formControlName="passwordConfirm"
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!registerForm.valid"
+    >
+      Register
+    </button>
+    <hr />
+    <a class="btn btn-link" [routerLink]="['/login']">Login</a>
+  </form>
+
+  <router-outlet />
+  
