@@ -8,7 +8,8 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 export class AuthService{
     
-  private apiUrl = 'https://localhost:5001/api/auth';
+  private apiUrl = 'https://localhost:5047/api/auth';
+  // apiUrl = []
 
   constructor(private http: HttpClient) {}
 
