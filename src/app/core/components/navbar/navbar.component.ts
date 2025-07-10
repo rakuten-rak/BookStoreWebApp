@@ -2,11 +2,13 @@ import { Component,Injectable,OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { User } from '../../../features/users/model/uesr.model'
 import { AuthService } from '../../../features/auth/services/auth.services'
+import { RouterOutlet } from "@angular/router";
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterOutlet,RouterModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
