@@ -19,7 +19,7 @@ import { RouterModule } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   isConnected: boolean = false;
-  user: User | undefined; // my web app
+  // user: User | undefined; // my web app
 
 
   // my web app

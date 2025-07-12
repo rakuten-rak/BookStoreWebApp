@@ -1,0 +1,113 @@
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa; /* Light grey background */
+            color: #343a40; /* Dark text */
+        }
+        .navbar {
+            background-color: #ffffff; /* White navbar */
+            box-shadow: 0 2px 4px rgba(0,0,0,.05);
+        }
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #343a40 !important;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1600x600/6c757d/ffffff?text=Your+Next+Adventure+Awaits') no-repeat center center/cover;
+            color: white;
+            padding: 100px 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,.5);
+            margin-bottom: 50px;
+        }
+        .hero-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        .hero-section p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+        }
+        .btn-primary-custom {
+            background-color: #007bff; /* Bootstrap primary blue */
+            border-color: #007bff;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px; /* Pill shape */
+            transition: all 0.3s ease;
+        }
+        .btn-primary-custom:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,123,255,.3);
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #343a40;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #007bff;
+            border-radius: 2px;
+        }
+        .book-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,.1);
+            transition: all 0.3s ease;
+            overflow: hidden; /* Ensures rounded corners on image */
+        }
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,.15);
+        }
+        .book-card img {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            height: 250px; /* Fixed height for consistency */
+            object-fit: cover; /* Ensures image covers the area nicely */
+        }
+        .book-card-body {
+            padding: 20px;
+            text-align: center;
+        }
+        .book-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            height: 50px; /* Fixed height for consistent display */
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .book-card-text {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 40px 0;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+        .footer a {
+            color: #adb5bd;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            color: #ffffff;
+        }
+  

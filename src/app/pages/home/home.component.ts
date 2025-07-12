@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   @ViewChild(RegisterPageComponent) registerPage!: RegisterPageComponent;
 
   ngOnInit(): void{
-    console.log(this.registerPage)
+    // console.log(this.registerPage)
   }
 
 

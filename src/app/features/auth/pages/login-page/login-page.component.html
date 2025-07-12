@@ -1,32 +1,62 @@
+ 
+ <div class="container-fluid vh-100 d-flex align-items-center justify-content-center bg-light">
+   <div class="row w-100">
+     <div class="col-md-6 col-lg-4 mx-auto">
+       <div class="card shadow-lg">
+         <div class="card-header bg-primary text-white text-center">
+           <h3 class="mb-0">
+             <i class="fas fa-book me-2"></i>Book Store Login
+           </h3>
+         </div>
+         <div class="card-body p-4">
+           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+             <div class="mb-3">
+               <label for="username" class="form-label">Username</label>
+               <input 
+                 type="text" 
+                 id="username"
+                 class="form-control"
+                 formControlName="username"
+                 [class.is-invalid]="f['username'].invalid && f['username'].touched"
+                 placeholder="Enter your username">
+               <div class="invalid-feedback" *ngIf="f['username'].invalid && f['username'].touched">
+                 <div *ngIf="f['username'].errors?.['required']">Username is required</div>
+                 <div *ngIf="f['username'].errors?.['minlength']">Username must be at least 3 characters</div>
+               </div>
+             </div>
 
-<div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6 col-lg-5"> <div class="card">
-          <div class="card-header text-center">
-            <h3>Login</h3>
-          </div>
-          <div class="card-body">
-            <div *ngIf="error" class="alert alert-danger" role="alert">
-              {{ error }}
-            </div>
-            <form (submit)="login()">
-              <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" [(ngModel)]="credentials.username" name="username" required>
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" [(ngModel)]="credentials.password" name="password" required>
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">Login</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+             <div class="mb-3">
+               <label for="password" class="form-label">Password</label>
+               <input 
+                 type="password" 
+                 id="password"
+                 class="form-control"
+                 formControlName="password"
+                 [class.is-invalid]="f['password'].invalid && f['password'].touched"
+                 placeholder="Enter your password">
+               <div class="invalid-feedback" *ngIf="f['password'].invalid && f['password'].touched">
+                 <div *ngIf="f['password'].errors?.['required']">Password is required</div>
+                 <div *ngIf="f['password'].errors?.['minlength']">Password must be at least 6 characters</div>
+               </div>
+             </div>
 
+             <div class="alert alert-danger" *ngIf="error" role="alert">
+               <i class="fas fa-exclamation-triangle me-2"></i>{{ error }}
+             </div>
 
-
-
-<!-- <p>login-page works!</p> -->
+             <div class="d-grid">
+               <button 
+                 type="submit" 
+                 class="btn btn-primary btn-lg"
+                 [disabled]="loginForm.invalid || loading">
+                 <span *ngIf="loading" class="spinner-border spinner-border-sm me-2"></span>
+                 <i class="fas fa-sign-in-alt me-2" *ngIf="!loading"></i>
+                 {{ loading ? 'Signing in...' : 'Sign In' }}
+               </button>
+             </div>
+           </form>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
