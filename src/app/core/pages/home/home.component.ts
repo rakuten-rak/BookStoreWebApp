@@ -10,11 +10,12 @@ import { Router } from '@angular/router';
 import { CommonModule, DecimalPipe, NgIf } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SlicePipe } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   standalone:true,
-  imports:[ReactiveFormsModule,DecimalPipe,SlicePipe,NgIf,CommonModule],
+  imports:[ReactiveFormsModule,DecimalPipe,SlicePipe,NgIf,CommonModule,RouterModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

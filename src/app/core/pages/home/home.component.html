@@ -19,7 +19,7 @@
                     <h5 class="mb-0">
                         <i class="fas fa-search me-2"></i>Book Search & Management
                     </h5>
-                    <button class="btn btn-success" (click)="onAddBook()">
+                    <button [routerLink]="['/add-book']" class="btn btn-success" (click)="onAddBook()">
                         <i class="fas fa-plus me-2"></i>Add New Book
                     </button>
                 </div>
@@ -34,7 +34,7 @@
                                 <select class="form-select" formControlName="category">
                                     <option value="">All Categories</option>
                                     <option *ngFor="let category of categories" [value]="category">
-                                        {{ category }}/ </option>
+                                        {{ category }} </option>
                                 </select>
                             </div>
                             <div class="col-md-5">
