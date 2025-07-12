@@ -76,3 +76,34 @@ body {
   
 // html, body { height: 100%; }
 // body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+}
+
+.modal.show {
+  display: block !important;
+}
+
+.modal-backdrop.show {
+  opacity: 0.5;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.card {
+  border: none;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.btn {
+  border-radius: 0.375rem;
+}
+
+.form-control, .form-select {
+  border-radius: 0.375rem;
+}
