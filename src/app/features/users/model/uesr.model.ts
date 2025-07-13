@@ -1,5 +1,5 @@
 export interface Book {
-  id: number;
+  id: number | string;
   name: string;
   category: string;
   price: number;
@@ -7,10 +7,10 @@ export interface Book {
 }
 
  export interface User {
-  // id: string;
+  id?: string;
   username: string;
   email: string;
-  password:string
+  password?:string
 }
 
 export interface LoginRequest {

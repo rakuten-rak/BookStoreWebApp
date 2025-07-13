@@ -29,11 +29,11 @@ export class BookService {
     return this.http.post<Book>(this.apiUrl, book);
   }
 
-  updateBook(id: string, book: Partial<Book>): Observable<Book> {
+  updateBook(id: number | string, book: Partial<Book>): Observable<Book> {
     return this.http.put<Book>(`${this.apiUrl}/${id}`, book);
   }
 
-  deleteBook(id: number): Observable<void> {
+  deleteBook(id:string | number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 

@@ -1,0 +1,106 @@
+
+<div class="modal" [class.show]="show" [style.display]="show ? 'block' : 'none'" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          <i class="fas fa-book me-2"></i>
+          {{ isEditing ? 'Edit Book' : 'Add New Book' }}
+        </h5>
+        <button type="button" class="btn-close" (click)="onClose()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="name" class="form-label">Book Name *</label>
+                <input 
+                  type="text" 
+                  id="name"
+                  class="form-control"
+                  formControlName="name"
+                  [class.is-invalid]="f['name'].invalid && f['name'].touched"
+                  placeholder="Enter book name">
+                <div class="invalid-feedback" *ngIf="f['name'].invalid && f['name'].touched">
+                  <div *ngIf="f['name'].errors?.['required']">Book name is required</div>
+                  <div *ngIf="f['name'].errors?.['minlength']">Book name must be at least 2 characters</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="category" class="form-label">Category *</label>
+                <select 
+                  id="category"
+                  class="form-select"
+                  formControlName="category"
+                  [class.is-invalid]="f['category'].invalid && f['category'].touched">
+                  <option value="">Select a category</option>
+                  <option *ngFor="let category of categories" [value]="category">
+                    {{ category }}
+                  </option>
+                </select>
+                <div class="invalid-feedback" *ngIf="f['category'].invalid && f['category'].touched">
+                  Category is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="price" class="form-label">Price *</label>
+            <div class="input-group">
+              <span class="input-group-text">$</span>
+              <input 
+                type="number" 
+                id="price"
+                class="form-control"
+                formControlName="price"
+                [class.is-invalid]="f['price'].invalid && f['price'].touched"
+                placeholder="0.00"
+                step="0.01"
+                min="0">
+              <div class="invalid-feedback" *ngIf="f['price'].invalid && f['price'].touched">
+                <div *ngIf="f['price'].errors?.['required']">Price is required</div>
+                <div *ngIf="f['price'].errors?.['min']">Price must be greater than 0</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="description" class="form-label">Description *</label>
+            <textarea 
+              id="description"
+              class="form-control"
+              formControlName="description"
+              [class.is-invalid]="f['description'].invalid && f['description'].touched"
+              placeholder="Enter book description"
+              rows="4"></textarea>
+            <div class="invalid-feedback" *ngIf="f['description'].invalid && f['description'].touched">
+              <div *ngIf="f['description'].errors?.['required']">Description is required</div>
+              <div *ngIf="f['description'].errors?.['minlength']">Description must be at least 10 characters</div>
+            </div>
+          </div>
+
+          <div class="alert alert-danger" *ngIf="error" role="alert">
+            <i class="fas fa-exclamation-triangle me-2"></i>{{ error }}
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onClose()">Cancel</button>
+        <button 
+          type="submit" 
+          class="btn btn-primary"
+          [disabled]="bookForm.invalid || loading"
+          (click)="onSubmit()">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm me-2"></span>
+          <i class="fas fa-save me-2" *ngIf="!loading"></i>
+          {{ loading ? 'Saving...' : (isEditing ? 'Update Book' : 'Create Book') }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop" [class.show]="show" *ngIf="show"></div>

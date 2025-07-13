@@ -11,17 +11,18 @@ import { CommonModule, DecimalPipe, NgIf } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SlicePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { BookmodalComponent } from "../../../features/auth/components/bookmodal/bookmodal.component";
 
 @Component({
   selector: 'app-dashboard',
   standalone:true,
-  imports:[ReactiveFormsModule,DecimalPipe,SlicePipe,NgIf,CommonModule,RouterModule],
+  imports: [ReactiveFormsModule, DecimalPipe, SlicePipe, NgIf, CommonModule, RouterModule, BookmodalComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   books: Book[] = [];
-  categories: string[] = [];
+  categories: string[] = ["Genre","Format","Subject","other categories"];
   searchForm: FormGroup;
   loading = false;
   selectedBook: Book | null = null;
@@ -105,7 +106,7 @@ export class HomeComponent implements OnInit {
   }
 
   onBookSaved(): void {
-    this.showBookModal = false;
+    this.showBookModal = true;
     this.selectedBook = null;
     this.loadBooks();
   }
