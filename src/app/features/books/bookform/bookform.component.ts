@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BookService } from '../../auth/services/bookstore.services';
+import { BookService } from '../../auth/services/book.services';
 import { AuthService } from '../../auth/services/auth.services';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
@@ -69,7 +69,7 @@ export class BookformComponent implements OnInit {
           }
         });
       } else {
-        this.bookService.addBook(bookData).subscribe({
+        this.bookService.createBook(bookData).subscribe({
           next: () => {
             this.bookSaved.emit();
           },
